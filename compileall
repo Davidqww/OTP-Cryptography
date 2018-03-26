@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# compile all 5 programs
 gcc keygen.c -o keygen
 gcc -c otp_enc.c 
 gcc -c otp_enc_d.c 
