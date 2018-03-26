@@ -1,0 +1,14 @@
+#!/bin/bash
+
+gcc keygen.c -o keygen
+gcc -c otp_enc.c 
+gcc -c otp_enc_d.c 
+gcc -c otp_dec.c 
+gcc -c otp_dec_d.c  
+gcc -c DC_SOCKET_CLIENT.c 
+gcc -c DC_SOCKET_SERVER.c 
+gcc -o otp_enc otp_enc.o DC_SOCKET_CLIENT.o 
+gcc -o otp_dec otp_dec.o DC_SOCKET_CLIENT.o 
+gcc -o otp_enc_d otp_enc_d.o DC_SOCKET_SERVER.o 
+gcc -o otp_dec_d otp_dec_d.o DC_SOCKET_SERVER.o 
+rm -f *.o
