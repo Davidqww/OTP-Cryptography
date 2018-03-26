@@ -19,17 +19,27 @@ otp_dec.c:
 otp_dec_d.c:
 	This program is to be ran in the background as a daemon. Its function is to perform actual decoding. This program will listen on a particular socket/port. When a connection is made, it will spawn a child process to handle the client requet. The child receives an encrypted text and key via communication socket, and will write back the decyphered text.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------
 
 Example usage with bash:
 	$ otp_enc_d 50011 &
+	
 	$ otp_dec_d 50012 &
+	
 	$ keygen 50 > mykey
+	
 	$ cat plaintext1
+	
 	$ THE RED GOOSE FLIES AT MIDNIGHT STOP
+	
 	$ otp_enc plaintext1 mykey 50011 > ciphertext1
+	
 	$ cat ciphertext1
+	
 	$ FJLKAESJOL IOVJSANFL PAOIEFJA DYGFYB
+	
 	$ otp_dec ciphertext1 mykey 50012 > plaintext1_a
+	
 	$ cat plaintext1_a
+	
 	$ THE RED GOOSE FLIES AT MIDNIGHT STOP
